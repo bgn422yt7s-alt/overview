@@ -132,6 +132,10 @@ body {
 
 /* PANEL */
 .panel {
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+  transform-origin: center;
+}
+.panel {
   min-width: 720px;
   height: 480px;
 
