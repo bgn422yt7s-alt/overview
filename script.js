@@ -1,16 +1,21 @@
-// Dark / Light Toggle
-const toggle = document.getElementById("themeToggle");
+const track = document.getElementById("track");
 
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-});
+window.addEventListener("scroll", () => {
 
-// Smooth scroll enhancement
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth"
-    });
-  });
+  const section = document.querySelector(".horizontal-section");
+  const rect = section.getBoundingClientRect();
+
+  // nur aktiv wenn Section sichtbar ist
+  if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+
+    const scrollProgress =
+      Math.abs(rect.top) /
+      (section.offsetHeight - window.innerHeight);
+
+    const maxScroll =
+      track.scrollWidth - window.innerWidth;
+
+    track.style.transform =
+      `translateX(-${scrollProgress * maxScroll}px)`;
+  }
 });
