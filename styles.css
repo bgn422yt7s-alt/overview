@@ -124,6 +124,9 @@ body {
 }
 
 .track {
+  align-items: center;
+}
+.track {
   display: flex;
   gap: 60px;
   will-change: transform;
