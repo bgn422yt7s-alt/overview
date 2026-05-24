@@ -3,92 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BizSolutions | Digital Systems</title>
 
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Nova Systems | Business Engineering</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Digitale Systeme, die Unternehmen skalieren.</h1>
-      <p>Automation, SaaS Engineering und Business Transformation auf Premium-Niveau.</p>
-      <a href="#work" class="btn">Projekte ansehen</a>
+<header class="nav">
+  <div class="logo">Nova Systems</div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#contact" class="cta">Start Project</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Digitale Systeme für echte Skalierung.</h1>
+    <p>Wir entwickeln Automatisierung, SaaS und Business-Architekturen auf Enterprise-Niveau.</p>
+    <a href="#work" class="button">Projekte ansehen</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="grid">
+    <div class="card">Automation Systems</div>
+    <div class="card">SaaS Engineering</div>
+    <div class="card">System Architecture</div>
+    <div class="card">Data Platforms</div>
+  </div>
+</section>
+
+<!-- 🔥 HORIZONTAL PIN SECTION -->
+<section id="work" class="pin-section">
+
+  <div class="pin-inner">
+
+    <div class="pin-text">
+      <h2>Selected Work</h2>
+      <p>Scroll weiter – Projekte bewegen sich horizontal.</p>
     </div>
-  </section>
 
-  <!-- INTRO -->
-  <section class="section">
-    <h2>Wir bauen keine Webseiten. Wir bauen Systeme.</h2>
-    <p>
-      Fokus auf Skalierung, Effizienz und digitale Transformation moderner Unternehmen.
-    </p>
-  </section>
+    <div class="track" id="track">
 
-  <!-- SERVICES -->
-  <section class="section dark">
-    <h2>Leistungen</h2>
-
-    <div class="grid">
-      <div class="card">Automation Systeme</div>
-      <div class="card">SaaS Entwicklung</div>
-      <div class="card">Digitale Transformation</div>
-    </div>
-  </section>
-
-  <!-- 🔥 HORIZONTAL SCROLL SECTION -->
-  <section class="horizontal-section" id="work">
-
-    <div class="sticky">
-      <h2>Ausgewählte Projekte</h2>
-      <p>Scroll weiter, um die Projekte horizontal zu entdecken</p>
-
-      <div class="horizontal-track" id="track">
-
-        <div class="panel">
-          <h3>Logistik Automation</h3>
-          <p>Komplette Prozessautomatisierung für Lieferketten.</p>
-        </div>
-
-        <div class="panel">
-          <h3>FinTech Plattform</h3>
-          <p>Skalierbare Infrastruktur für Finanztransaktionen.</p>
-        </div>
-
-        <div class="panel">
-          <h3>AI CRM System</h3>
-          <p>KI-gestützte Kundenanalyse & Conversion Optimierung.</p>
-        </div>
-
-        <div class="panel">
-          <h3>Enterprise API Layer</h3>
-          <p>Zentrale Daten- und Integrationsarchitektur.</p>
-        </div>
-
+      <div class="panel">
+        <h3>Logistics OS</h3>
+        <p>Automatisierung komplexer Supply-Chain Systeme.</p>
       </div>
+
+      <div class="panel">
+        <h3>FinTech Core</h3>
+        <p>High-performance Transaktionsplattform.</p>
+      </div>
+
+      <div class="panel">
+        <h3>AI CRM Engine</h3>
+        <p>Predictive Sales & Kundenintelligenz.</p>
+      </div>
+
+      <div class="panel">
+        <h3>API Infrastructure</h3>
+        <p>Zentrale Integrations- und Datenarchitektur.</p>
+      </div>
+
     </div>
 
-  </section>
+  </div>
 
-  <!-- CONTACT -->
-  <section class="section">
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
     <h2>Kontakt</h2>
 
-    <form>
-      <input type="text" placeholder="Name" required />
-      <input type="email" placeholder="E-Mail" required />
+    <form class="form">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="E-Mail">
       <textarea placeholder="Projektbeschreibung"></textarea>
       <button>Senden</button>
     </form>
-  </section>
 
-  <footer>
-    <p>© 2026 BizSolutions</p>
-  </footer>
+  </div>
+</section>
 
-  <script src="script.js"></script>
 </body>
 </html>
