@@ -1,0 +1,145 @@
+:root {
+  --bg: #0b0f1a;
+  --card: #121a2a;
+  --text: #e6e9f2;
+  --accent: #4f8cff;
+  --muted: #9aa4b2;
+}
+
+body.light {
+  --bg: #f6f8fc;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+}
+
+.nav a {
+  color: var(--text);
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.btn-small {
+  background: var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  background: radial-gradient(circle at top, #1a2a4a, var(--bg));
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 600px;
+}
+
+.hero-actions a {
+  margin-right: 10px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 10%;
+}
+
+.dark {
+  background: rgba(255,255,255,0.02);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* CASES */
+.case img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
