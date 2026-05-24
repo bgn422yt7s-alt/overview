@@ -1,31 +1,29 @@
-const track = document.getElementById("track");
 const section = document.querySelector(".pin-section");
+const track = document.getElementById("track");
 
 let maxScroll = 0;
 
-function calculate() {
+function update() {
   maxScroll = track.scrollWidth - window.innerWidth;
 }
 
-window.addEventListener("resize", calculate);
-calculate();
+window.addEventListener("resize", update);
+update();
 
 window.addEventListener("scroll", () => {
+  const sectionTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
+  const scrollY = window.scrollY;
 
-  const rect = section.getBoundingClientRect();
+  // Fortschritt innerhalb der Section berechnen
+  let progress =
+    (scrollY - sectionTop) / (sectionHeight - window.innerHeight);
 
-  if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+  // clamp 0–1
+  progress = Math.max(0, Math.min(1, progress));
 
-    const progress =
-      Math.min(
-        1,
-        Math.abs(rect.top) /
-        (section.offsetHeight - window.innerHeight)
-      );
+  // horizontal bewegen
+  const x = -progress * maxScroll;
 
-    const x = -progress * maxScroll;
-
-    track.style.transform = `translate3d(${x}px,0,0)`;
-  }
-
+  track.style.transform = `translate3d(${x}px,0,0)`;
 });
