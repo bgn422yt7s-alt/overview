@@ -1,5 +1,5 @@
-const section = document.querySelector(".pin-section");
 const track = document.getElementById("track");
+const section = document.querySelector(".pin-section");
 
 let maxScroll = 0;
 
@@ -11,18 +11,15 @@ window.addEventListener("resize", update);
 update();
 
 window.addEventListener("scroll", () => {
-  const sectionTop = section.offsetTop;
-  const sectionHeight = section.offsetHeight;
+
+  const top = section.offsetTop;
+  const height = section.offsetHeight;
   const scrollY = window.scrollY;
 
-  // Fortschritt innerhalb der Section berechnen
-  let progress =
-    (scrollY - sectionTop) / (sectionHeight - window.innerHeight);
+  let progress = (scrollY - top) / (height - window.innerHeight);
 
-  // clamp 0–1
   progress = Math.max(0, Math.min(1, progress));
 
-  // horizontal bewegen
   const x = -progress * maxScroll;
 
   track.style.transform = `translate3d(${x}px,0,0)`;
