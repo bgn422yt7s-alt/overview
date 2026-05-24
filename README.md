@@ -2,7 +2,7 @@
 
 Modern, responsive One-Page Website für eine Business-/SaaS-Agentur.
 
-## 🚀 Features
+## Features
 - Responsive Mobile-First Design
 - Dark Mode Toggle
 - SEO Meta Tags + Open Graph
@@ -11,7 +11,7 @@ Modern, responsive One-Page Website für eine Business-/SaaS-Agentur.
 - Case Study & Conversion Sections
 - GitHub Pages Ready
 
-## 📦 Deployment (GitHub Pages)
+## Deployment (GitHub Pages)
 
 1. Repository erstellen
 2. Dateien hochladen
@@ -19,11 +19,11 @@ Modern, responsive One-Page Website für eine Business-/SaaS-Agentur.
 4. Branch: `main` / root auswählen
 5. Deploy
 
-## 🌐 Live Demo
+## Live Demo
 Nach Aktivierung:  
 `https://username.github.io/repository-name/`
 
-## 🛠 Anpassung
+## Anpassung
 - Farben: `:root` in styles.css
 - Inhalte: index.html
 - Assets: /assets Ordner
