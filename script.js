@@ -1,21 +1,31 @@
 const track = document.getElementById("track");
+const section = document.querySelector(".pin-section");
+
+let maxScroll = 0;
+
+function calculate() {
+  maxScroll = track.scrollWidth - window.innerWidth;
+}
+
+window.addEventListener("resize", calculate);
+calculate();
 
 window.addEventListener("scroll", () => {
 
-  const section = document.querySelector(".horizontal-section");
   const rect = section.getBoundingClientRect();
 
-  // nur aktiv wenn Section sichtbar ist
   if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
 
-    const scrollProgress =
-      Math.abs(rect.top) /
-      (section.offsetHeight - window.innerHeight);
+    const progress =
+      Math.min(
+        1,
+        Math.abs(rect.top) /
+        (section.offsetHeight - window.innerHeight)
+      );
 
-    const maxScroll =
-      track.scrollWidth - window.innerWidth;
+    const x = -progress * maxScroll;
 
-    track.style.transform =
-      `translateX(-${scrollProgress * maxScroll}px)`;
+    track.style.transform = `translate3d(${x}px,0,0)`;
   }
+
 });
