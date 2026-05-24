@@ -1,8 +1,44 @@
-body {
+:root {
+  --bg: #0b0f17;
+  --panel: #121a2a;
+  --text: #e8ecf3;
+  --muted: #9aa4b2;
+  --accent: #5b8cff;
+}
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Inter, sans-serif;
-  background: #0b0f1a;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 5%;
+  backdrop-filter: blur(12px);
+  z-index: 10;
+}
+
+.nav a {
+  color: var(--text);
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.cta {
+  color: var(--accent);
 }
 
 /* HERO */
@@ -10,82 +46,82 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  padding: 0 10%;
-  background: radial-gradient(circle at top, #1a2a4a, #0b0f1a);
+  padding: 0 5%;
 }
 
 .hero h1 {
   font-size: 3rem;
+  max-width: 800px;
 }
 
-/* SECTIONS */
+.hero p {
+  margin-top: 15px;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 18px;
+  background: var(--accent);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/* SERVICES */
 .section {
-  padding: 100px 10%;
+  padding: 120px 5%;
 }
 
-.dark {
-  background: rgba(255,255,255,0.03);
-}
-
-/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
 .card {
-  background: #121a2a;
+  background: var(--panel);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 20px;
-  background: #4f8cff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-/* 🔥 HORIZONTAL SECTION */
-.horizontal-section {
-  height: 300vh; /* wichtig für Scrollraum */
+/* 🔥 PIN SECTION */
+.pin-section {
+  height: 250vh; /* Scroll Raum */
   position: relative;
 }
 
-.sticky {
+.pin-inner {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow: hidden;
-  padding: 100px 10%;
+  padding: 120px 5%;
 }
 
-.horizontal-track {
+.pin-text {
+  margin-bottom: 40px;
+}
+
+.track {
   display: flex;
   gap: 40px;
-  width: max-content;
-  transition: transform 0.1s linear;
+  will-change: transform;
 }
 
 .panel {
-  min-width: 400px;
-  height: 250px;
-  background: #121a2a;
-  border-radius: 16px;
-  padding: 20px;
+  min-width: 420px;
+  height: 260px;
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 24px;
   flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 /* FORM */
-form {
+.form {
   display: flex;
   flex-direction: column;
   max-width: 500px;
@@ -94,21 +130,17 @@ form {
 input, textarea {
   margin-bottom: 10px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
+  background: #111827;
+  color: white;
 }
 
 button {
   padding: 12px;
-  background: #4f8cff;
-  color: white;
+  background: var(--accent);
   border: none;
+  color: white;
   cursor: pointer;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  opacity: 0.6;
+  border-radius: 10px;
 }
