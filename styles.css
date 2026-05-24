@@ -37,16 +37,32 @@ body {
   text-decoration: none;
 }
 
-.cta {
-  color: var(--accent);
-}
-
 /* HERO */
 .hero {
   height: 100vh;
+  position: relative;
   display: flex;
   align-items: center;
   padding: 0 5%;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("assets/IMG_1096.jpeg") center/cover no-repeat;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -60,6 +76,7 @@ body {
   max-width: 600px;
 }
 
+/* BUTTON */
 .button {
   display: inline-block;
   margin-top: 25px;
@@ -70,7 +87,7 @@ body {
   text-decoration: none;
 }
 
-/* SERVICES */
+/* SECTIONS */
 .section {
   padding: 120px 5%;
 }
@@ -87,9 +104,9 @@ body {
   border-radius: 14px;
 }
 
-/* 🔥 PIN SECTION */
+/* PIN SECTION */
 .pin-section {
-  height: 250vh; /* Scroll Raum */
+  height: 250vh;
   position: relative;
 }
 
@@ -101,26 +118,49 @@ body {
   padding: 120px 5%;
 }
 
-.pin-text {
-  margin-bottom: 40px;
-}
-
 .track {
   display: flex;
   gap: 40px;
   will-change: transform;
 }
 
+/* PROJECT CARD */
 .panel {
-  min-width: 420px;
-  height: 260px;
-  background: var(--panel);
-  border-radius: 18px;
-  padding: 24px;
-  flex-shrink: 0;
+  min-width: 520px;
+  height: 360px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
-/* FORM */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+}
+
+.logo {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  background: rgba(255,255,255,0.08);
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: white;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -141,6 +181,5 @@ button {
   background: var(--accent);
   border: none;
   color: white;
-  cursor: pointer;
   border-radius: 10px;
 }
