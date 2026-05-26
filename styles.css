@@ -255,6 +255,9 @@ body {
 /* =========================
    WORK / HORIZONTAL SCROLL
 ========================= */
+/* =========================
+   WORK / HORIZONTAL SCROLL (PREMIUM VERSION)
+========================= */
 
 .pin-section {
   height: 300vh;
@@ -267,33 +270,32 @@ body {
 
   display: flex;
   align-items: center;
-
   overflow: hidden;
 }
 
 /* TRACK */
 .track {
   display: flex;
-  gap: 80px;
+  gap: 90px;
 
-  padding-left: calc(50vw - 400px);
-  padding-right: calc(50vw - 400px);
+  padding-left: calc(50vw - 420px);
+  padding-right: calc(50vw - 420px);
 }
 
 /* PANEL */
 .panel {
-  width: 800px;
-  height: 520px;
+  width: 840px;
+  height: 540px;
 
   flex-shrink: 0;
-  border-radius: 30px;
+  border-radius: 32px;
   overflow: hidden;
 
   position: relative;
 
-  transition: transform 0.2s linear,
-              opacity 0.2s linear,
-              filter 0.2s linear;
+  transition: transform 0.4s ease,
+              opacity 0.4s ease,
+              filter 0.4s ease;
 }
 
 /* BACKGROUND */
@@ -303,30 +305,60 @@ body {
 
   background-size: cover;
   background-position: center;
-
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-/* DARK OVERLAY */
+/* DARK / GRADIENT OVERLAY */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0,0,0,0.2), rgba(0,0,0,0.85)),
+    linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
 }
 
-/* LOGO IN CARD */
+/* CONTENT WRAPPER */
+.content {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 40px;
+  z-index: 3;
+}
+
+/* LOGO */
 .logo-img {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-
-  width: 140px;
+  width: 120px;
   height: auto;
+  object-fit: contain;
+
+  opacity: 0.9;
 }
 
-/* TEXT */
-.panel h2 {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
+/* TEXT BLOCK */
+.text {
+  max-width: 80%;
+}
+
+.panel h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.panel p {
+  font-size: 1rem;
+  line-height: 1.6;
+
+  color: rgba(255,255,255,0.7);
+}
+
+/* OPTIONAL: subtle depth */
+.panel:hover {
+  transform: scale(1.02);
 }
