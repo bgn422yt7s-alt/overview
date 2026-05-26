@@ -96,11 +96,14 @@ body {
   overflow: hidden;
 }
 
-/* TRACK */
 .track {
   display: flex;
   gap: 80px;
-  padding: 0 50vw; /* 🔥 wichtig für Snap */
+
+  /* 🔥 WICHTIG: exakte Zentrierung */
+  padding-left: calc(50vw - 390px);
+  padding-right: calc(50vw - 390px);
+
   align-items: center;
   will-change: transform;
 }
