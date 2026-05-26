@@ -15,11 +15,16 @@ update();
 
 window.addEventListener("scroll", () => {
   const rect = section.getBoundingClientRect();
-  const progress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
+
+  const progress = Math.min(
+    Math.max(-rect.top / (rect.height - window.innerHeight), 0),
+    1
+  );
 
   target = -progress * maxScroll;
 });
 
+// 🔥 NEUE FOKUS-LOGIK MIT CENTER HOLD
 function updateCards() {
   const center = window.innerWidth / 2;
 
@@ -28,11 +33,28 @@ function updateCards() {
     const cardCenter = rect.left + rect.width / 2;
 
     const distance = Math.abs(center - cardCenter);
-    const norm = Math.min(distance / center, 1);
+    const maxDistance = center;
 
-    const scale = 1 - norm * 0.2;
-    const opacity = 1 - norm * 0.6;
-    const blur = norm * 4;
+    let norm = distance / maxDistance;
+
+    // 🔥 CENTER HOLD ZONE (sehr wichtig!)
+    const deadZone = 0.15; // 15% der Mitte bleibt „perfekt“
+
+    if (norm < deadZone) {
+      norm = 0;
+    } else {
+      norm = (norm - deadZone) / (1 - deadZone);
+    }
+
+    norm = Math.min(norm, 1);
+
+    // 🔥 weichere Kurve (nicht linear!)
+    const eased = Math.pow(norm, 1.4);
+
+    // 🎯 Effekte
+    const scale = 1 - eased * 0.25;
+    const opacity = 1 - eased * 0.65;
+    const blur = eased * 6;
 
     card.style.transform = `scale(${scale})`;
     card.style.opacity = opacity;
