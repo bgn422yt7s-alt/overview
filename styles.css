@@ -1,7 +1,15 @@
+/* =========================
+   RESET
+========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,134 +17,59 @@ body {
   overflow-x: hidden;
   color: white;
 
-  /* 🔥 NEUER BLACK-GRAY SYSTEM BACKGROUND */
+  /* 🔥 SYSTEM BACKGROUND */
   background:
     radial-gradient(circle at 20% 10%, rgba(255,255,255,0.05), transparent 45%),
     radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03), transparent 50%),
     linear-gradient(180deg, #0b0f14 0%, #07090c 100%);
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
   height: 100vh;
   position: relative;
-
   display: flex;
   align-items: center;
-
-  overflow: hidden; /* 🔥 wichtig für sauberes Cropping */
-}
-.section {
-  padding: 120px 5%;
-}
-
-/* HEADER */
-.section-head {
-  margin-bottom: 60px;
-}
-
-.section-head h2 {
-  font-size: 2.5rem;
-  letter-spacing: -0.02em;
-}
-
-.section-head p {
-  color: rgba(255,255,255,0.6);
-  margin-top: 10px;
-}
-
-/* 🔥 GRID FIX (DAS FEHLTE DIR) */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2x2 statt 4 untereinander */
-  gap: 28px;
-}
-
-/* 🔥 CARD DESIGN (HIGH END) */
-.card {
-  position: relative;
-
-  padding: 40px;
-  border-radius: 24px;
-
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter: blur(14px);
-
-  transition: all 0.35s ease;
-
   overflow: hidden;
 }
 
-/* GLOW EFFECT */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-/* HOVER = PREMIUM FEEL */
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.05);
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-/* TEXT */
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-}
-
-.card p {
-  color: rgba(255,255,255,0.65);
-  line-height: 1.5;
-}
-/* BACKGROUND (OPTIMIERT) */
+/* BACKGROUND IMAGE */
 .hero-bg {
   position: absolute;
-  inset: -5%; /* 🔥 gibt Raum für besseres Cropping */
+  inset: -6%;
 
   background-image: url("IMG_1096.jpeg");
   background-size: cover;
-
-  /* 🔥 wichtiger Teil: kontrollierter Fokus */
   background-position: center 35%;
 
-  transform: scale(1.15); /* mehr cinematic depth */
-
+  transform: scale(1.15);
   filter: saturate(1.05) contrast(1.05);
 }
 
-/* OVERLAY bleibt, aber etwas cleaner */
+/* OVERLAY */
 .hero-overlay {
   position: absolute;
   inset: 0;
 
   background:
     radial-gradient(circle at 50% 20%, rgba(0,0,0,0.25), rgba(0,0,0,0.85)),
-    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(7,9,12,0.95));
 }
 
-/* CONTENT bleibt gleich, nur leicht optimiert */
+/* CONTENT */
 .hero-content {
   position: relative;
   z-index: 2;
 
   padding: 0 5%;
-  margin-top: 60px; /* etwas cleaner als 80px */
   max-width: 900px;
+  margin-top: 60px;
 }
 
-/* TYPO refinement */
 .hero h1 {
   font-size: 4.2rem;
   line-height: 1.05;
@@ -151,60 +84,88 @@ body {
   font-size: 18px;
   line-height: 1.6;
 }
-/* PIN */
-.pin-section {
-  height: 300vh;
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.section {
+  padding: 120px 5%;
 }
 
-.pin-inner {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+.section-head {
+  margin-bottom: 60px;
 }
 
-/* TRACK (FIX!!!) */
-.track {
-  display: flex;
-  gap: 80px;
-
-  /* 🔥 mathematisch korrekt */
-  padding-left: calc(50vw - 400px);
-  padding-right: calc(50vw - 400px);
+.section-head h2 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
 }
 
-/* PANEL */
-.panel {
-  width: 800px;
-  height: 520px;
+.section-head p {
+  color: rgba(255,255,255,0.6);
+  margin-top: 10px;
+}
 
-  flex-shrink: 0;
-  border-radius: 30px;
-  overflow: hidden;
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.card {
   position: relative;
+  padding: 40px;
+  border-radius: 24px;
 
-  transition: transform 0.2s linear,
-              opacity 0.2s linear,
-              filter 0.2s linear;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  transition: all 0.35s ease;
+  overflow: hidden;
 }
 
-/* BACKGROUND */
-.bg {
+/* glow */
+.card::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.05);
+
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
 }
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
 .nav {
   position: fixed;
   top: 0;
@@ -212,7 +173,6 @@ body {
   width: 100%;
   z-index: 999;
 
-  /* 🔥 GLASS EFFECT */
   background: rgba(10, 14, 22, 0.35);
   backdrop-filter: blur(18px);
 
@@ -227,17 +187,15 @@ body {
   padding: 18px 5%;
 }
 
-/* LOGO LINKS OBEN KLEIN */
+/* LOGO */
 .nav-logo-img {
   width: 38px;
   height: 38px;
   object-fit: contain;
-
   border-radius: 8px;
-  opacity: 0.95;
 }
 
-/* NAV LINKS */
+/* LINKS */
 .nav-links {
   display: flex;
   gap: 40px;
@@ -258,7 +216,6 @@ body {
   color: white;
 }
 
-/* CTA */
 .cta {
   padding: 10px 18px;
   border-radius: 999px;
@@ -267,14 +224,77 @@ body {
   border: 1px solid rgba(255,255,255,0.12);
 }
 
-/* LOGO */
+
+/* =========================
+   WORK / HORIZONTAL SCROLL
+========================= */
+
+.pin-section {
+  height: 300vh;
+}
+
+.pin-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+/* TRACK */
+.track {
+  display: flex;
+  gap: 80px;
+
+  padding-left: calc(50vw - 400px);
+  padding-right: calc(50vw - 400px);
+}
+
+/* PANEL */
+.panel {
+  width: 800px;
+  height: 520px;
+
+  flex-shrink: 0;
+  border-radius: 30px;
+  overflow: hidden;
+
+  position: relative;
+
+  transition: transform 0.2s linear,
+              opacity 0.2s linear,
+              filter 0.2s linear;
+}
+
+/* BACKGROUND */
+.bg {
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+
+  transform: scale(1.05);
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+/* LOGO IN CARD */
 .logo-img {
   position: absolute;
   top: 30px;
   left: 30px;
 
   width: 140px;
-  height: auto; /* 🔥 FIX */
+  height: auto;
 }
 
 /* TEXT */
