@@ -687,9 +687,16 @@ body {
     justify-content: space-between;
   }
 
-  .logo-img {
-    width: 96px;
-  }
+.logo-img {
+  width: 96px;
+  max-width: 45%;
+  height: auto;
+  object-fit: contain;
+
+  opacity: 0.95;
+
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.35));
+}
 
   .text {
     max-width: 100%;
