@@ -2,24 +2,20 @@ const track = document.getElementById("track");
 const section = document.querySelector(".pin-section");
 const cards = document.querySelectorAll(".panel");
 
-let maxScroll = 0;
 let current = 0;
 let target = 0;
+let maxScroll = 0;
 
-function updateSizes() {
+function update() {
   maxScroll = track.scrollWidth - window.innerWidth;
 }
 
-window.addEventListener("resize", updateSizes);
-updateSizes();
+window.addEventListener("resize", update);
+update();
 
 window.addEventListener("scroll", () => {
-  const top = section.offsetTop;
-  const height = section.offsetHeight;
-  const scrollY = window.scrollY;
-
-  let progress = (scrollY - top) / (height - window.innerHeight);
-  progress = Math.max(0, Math.min(1, progress));
+  const rect = section.getBoundingClientRect();
+  const progress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
 
   target = -progress * maxScroll;
 });
@@ -31,20 +27,12 @@ function updateCards() {
     const rect = card.getBoundingClientRect();
     const cardCenter = rect.left + rect.width / 2;
 
-    const distance = cardCenter - center;
+    const distance = Math.abs(center - cardCenter);
+    const norm = Math.min(distance / center, 1);
 
-    const normalized = distance / center;
-
-    const abs = Math.abs(normalized);
-
-    // 🎯 SCALE (ruhiger & präziser)
-    const scale = 1 - Math.min(abs * 0.2, 0.2);
-
-    // 🎯 OPACITY
-    const opacity = 1 - Math.min(abs * 0.6, 0.6);
-
-    // 🎯 BLUR (nur leicht!)
-    const blur = Math.min(abs * 4, 4);
+    const scale = 1 - norm * 0.2;
+    const opacity = 1 - norm * 0.6;
+    const blur = norm * 4;
 
     card.style.transform = `scale(${scale})`;
     card.style.opacity = opacity;
@@ -53,7 +41,6 @@ function updateCards() {
 }
 
 function animate() {
-  // smoother interpolation
   current += (target - current) * 0.08;
 
   track.style.transform = `translate3d(${current}px,0,0)`;
