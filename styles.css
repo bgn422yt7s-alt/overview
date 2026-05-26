@@ -517,7 +517,7 @@ body {
 }
 
 /* =========================
-   MOBILE → ELITE CAROUSEL
+   MOBILE → CLEAN ELITE UX
 ========================= */
 @media (max-width: 768px) {
 
@@ -559,12 +559,13 @@ body {
   }
 
   /* =========================
-     PROJECTS → PREMIUM MOBILE
+     PROJECTS → FIXED STRUCTURE
   ========================= */
 
+  /* SECTION wird normal */
   .pin-section {
     height: auto;
-    padding: 80px 0;
+    padding: 80px 0 40px;
   }
 
   .pin-inner {
@@ -573,73 +574,89 @@ body {
     display: block;
   }
 
+  /* 🔥 HEAD IST JETZT OBEN – KEIN OVERLAP */
   .projects-head {
     position: relative;
-    padding: 0 6% 30px;
+    padding: 0 5% 24px;
   }
 
-  /* 🔥 TRACK = CLEAN CAROUSEL */
+  .projects-head h2 {
+    font-size: 1.9rem;
+    margin-bottom: 6px;
+  }
+
+  .projects-head p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* =========================
+     CAROUSEL → CLEAN & SMOOTH
+  ========================= */
+
   .track {
     display: flex;
-    flex-direction: row;
-
-    gap: 18px;
+    gap: 16px;
 
     overflow-x: auto;
     overflow-y: hidden;
 
-    padding: 0 6% 30px;
+    padding: 10px 5% 30px;
 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* 🔥 EDGE SPACING (IMPORTANT FIX) */
-  .track::before,
+  /* EDGE SPACING → damit erste Karte perfekt sitzt */
+  .track::before {
+    content: "";
+    flex: 0 0 2px;
+  }
+
   .track::after {
     content: "";
-    flex: 0 0 6%;
+    flex: 0 0 5%;
   }
 
-  /* 🔥 PANEL = CENTER FOCUS SYSTEM */
+  /* 🔥 CARDS → KEIN SCHNEIDEN, SAUBER ZENTRIERT */
   .panel {
-    flex: 0 0 82%;
-    height: 420px;
+    flex: 0 0 86%;
+    height: 400px;
 
-    scroll-snap-align: center;
+    border-radius: 24px;
 
-    border-radius: 26px;
+    scroll-snap-align: start;
 
-    transition: transform 0.35s ease,
-                opacity 0.35s ease;
-
-    transform: scale(0.94);
-    opacity: 0.7;
-  }
-
-  /* 🔥 ACTIVE STATE (JS wird später optional) */
-  .panel:focus-within,
-  .panel:active {
-    transform: scale(1);
+    transform: none;
     opacity: 1;
+    filter: none;
   }
 
-  /* TEXT OPTIMIERUNG */
+  /* INNER FIX */
   .panel-inner {
-    padding: 28px;
+    padding: 24px;
   }
 
+  /* LOGO */
   .logo-img {
-    width: 90px;
+    width: 80px;
+    opacity: 0.95;
+  }
+
+  /* TEXT → WICHTIG: LESBAR */
+  .text {
+    max-width: 100%;
   }
 
   .text h3 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+    margin-bottom: 8px;
   }
 
   .text p {
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.75);
   }
 
   /* SCROLLBAR CLEAN */
@@ -662,7 +679,7 @@ body {
 }
 
 /* =========================
-   SMALL MOBILE
+   SMALL MOBILE → EXTRA POLISH
 ========================= */
 @media (max-width: 420px) {
 
@@ -671,14 +688,23 @@ body {
   }
 
   .section-head h2 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .panel {
-    height: 380px;
+    flex: 0 0 90%;
+    height: 360px;
   }
 
-  .panel {
-    flex: 0 0 88%;
+  .panel-inner {
+    padding: 20px;
+  }
+
+  .text h3 {
+    font-size: 1.2rem;
+  }
+
+  .text p {
+    font-size: 0.9rem;
   }
 }
