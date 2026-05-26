@@ -574,35 +574,37 @@ body {
   }
 
 /* =========================
-   PROJECTS → STABLE MOBILE SYSTEM (NO OVERLAP GUARANTEE)
+   PROJECTS → FINAL MOBILE FIX (CLEAN + NON-OVERLAPPING)
 ========================= */
 
 @media (max-width: 768px) {
 
-  /* SECTION = NORMAL FLOW */
+  /* =========================
+     SECTION RESET
+  ========================= */
+
   .pin-section {
     height: auto !important;
     padding: 60px 0 40px;
     overflow: hidden;
   }
 
-  /* ❌ WICHTIG: alles Sticky/Desktop komplett neutralisieren */
+  /* ❗ WICHTIG: Desktop Layout komplett neutralisieren */
   .pin-inner {
-    position: relative !important;
-    height: auto !important;
     display: block !important;
+    height: auto !important;
     overflow: visible !important;
   }
 
-  /* HEAD = EIGENER BLOCK */
+  /* =========================
+     HEAD (IM FLOW, KEIN OVERLAP MÖGLICH)
+  ========================= */
+
   .projects-head {
-    position: relative !important;
     padding: 0 5%;
-    margin: 0 0 18px 0;
-    z-index: 1;
+    margin-bottom: 16px;
   }
 
-  /* TITLE spacing fix */
   .projects-head h2 {
     font-size: 1.7rem;
     line-height: 1.2;
@@ -615,40 +617,41 @@ body {
   }
 
   /* =========================
-     CAROUSEL WRAPPER
+     CAROUSEL
   ========================= */
 
   .track {
     display: flex;
-    flex-wrap: nowrap;
+    gap: 14px;
 
     overflow-x: auto;
     overflow-y: hidden;
-
-    gap: 14px;
 
     padding: 0 5% 20px;
 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
-    /* 🔥 HARD RESET gegen Desktop Animationen */
+    /* ❗ verhindert Desktop Animation Einfluss */
     transform: none !important;
   }
 
-  /* SAFE SPACING (kein calc mehr!) */
+  /* =========================
+     FIXED CENTER SPACING (SAFE)
+  ========================= */
+
   .track::before,
   .track::after {
     content: "";
-    flex: 0 0 5%;
+    flex: 0 0 5vw; /* stabil auf allen iPhones */
   }
 
   /* =========================
-     CARDS
+     CARD
   ========================= */
 
   .panel {
-    flex: 0 0 88%;
+    flex: 0 0 85vw; /* 🔥 KEY FIX: echte Viewport-Breite */
 
     height: 380px;
 
@@ -664,7 +667,10 @@ body {
     position: relative;
   }
 
-  /* CONTENT */
+  /* =========================
+     CONTENT
+  ========================= */
+
   .panel-inner {
     padding: 20px;
   }
@@ -684,7 +690,10 @@ body {
     opacity: 0.8;
   }
 
-  /* SCROLLBAR CLEAN */
+  /* =========================
+     CLEAN SCROLLBAR
+  ========================= */
+
   .track::-webkit-scrollbar {
     display: none;
   }
