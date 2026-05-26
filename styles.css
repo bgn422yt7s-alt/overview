@@ -134,17 +134,21 @@ body {
   background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
 }
 
-/* LOGO */
 .logo {
   position: absolute;
   top: 28px;
   left: 28px;
 
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: auto; /* 🔥 FIX */
+
+  max-height: 120px;
+
+  object-fit: contain;
 
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(16px);
+
   padding: 18px;
   border-radius: 20px;
 }
