@@ -25,7 +25,81 @@ body {
 
   overflow: hidden; /* 🔥 wichtig für sauberes Cropping */
 }
+.section {
+  padding: 120px 5%;
+}
 
+/* HEADER */
+.section-head {
+  margin-bottom: 60px;
+}
+
+.section-head h2 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.section-head p {
+  color: rgba(255,255,255,0.6);
+  margin-top: 10px;
+}
+
+/* 🔥 GRID FIX (DAS FEHLTE DIR) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 statt 4 untereinander */
+  gap: 28px;
+}
+
+/* 🔥 CARD DESIGN (HIGH END) */
+.card {
+  position: relative;
+
+  padding: 40px;
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  transition: all 0.35s ease;
+
+  overflow: hidden;
+}
+
+/* GLOW EFFECT */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* HOVER = PREMIUM FEEL */
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* TEXT */
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
 /* BACKGROUND (OPTIMIERT) */
 .hero-bg {
   position: absolute;
