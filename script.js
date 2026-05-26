@@ -4,29 +4,31 @@ const cards = document.querySelectorAll(".panel");
 
 let current = 0;
 let target = 0;
-let velocity = 0;
 
 let maxScroll = 0;
 
-function calculateScroll() {
+function update() {
   maxScroll = track.scrollWidth - window.innerWidth;
 }
 
-window.addEventListener("resize", calculateScroll);
-calculateScroll();
+window.addEventListener("resize", update);
+update();
 
-/* SCROLL */
 window.addEventListener("scroll", () => {
+
   const rect = section.getBoundingClientRect();
 
-  let progress = -rect.top / (rect.height - window.innerHeight);
-  progress = Math.max(0, Math.min(1, progress));
+  const progress = Math.min(
+    Math.max(-rect.top / (rect.height - window.innerHeight), 0),
+    1
+  );
 
   target = -progress * maxScroll;
 });
 
-/* FOKUS SYSTEM */
+/* FOCUS */
 function updateCards() {
+
   const center = window.innerWidth / 2;
 
   cards.forEach(card => {
@@ -59,10 +61,9 @@ function updateCards() {
   });
 }
 
-/* MAIN LOOP */
+/* LOOP */
 function animate() {
-  velocity = (target - current) * 0.08;
-  current += velocity;
+  current += (target - current) * 0.08;
 
   track.style.transform = `translate3d(${current}px,0,0)`;
 
