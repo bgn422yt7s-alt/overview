@@ -4,56 +4,53 @@ const cards = document.querySelectorAll(".panel");
 
 let current = 0;
 let target = 0;
+let velocity = 0;
+
 let maxScroll = 0;
 
-function update() {
+function calculateScroll() {
   maxScroll = track.scrollWidth - window.innerWidth;
 }
 
-window.addEventListener("resize", update);
-update();
+window.addEventListener("resize", calculateScroll);
+calculateScroll();
 
+/* SCROLL */
 window.addEventListener("scroll", () => {
   const rect = section.getBoundingClientRect();
 
-  const progress = Math.min(
-    Math.max(-rect.top / (rect.height - window.innerHeight), 0),
-    1
-  );
+  let progress = -rect.top / (rect.height - window.innerHeight);
+  progress = Math.max(0, Math.min(1, progress));
 
   target = -progress * maxScroll;
 });
 
-// 🔥 NEUE FOKUS-LOGIK MIT CENTER HOLD
+/* FOKUS SYSTEM */
 function updateCards() {
   const center = window.innerWidth / 2;
 
   cards.forEach(card => {
+
     const rect = card.getBoundingClientRect();
     const cardCenter = rect.left + rect.width / 2;
 
     const distance = Math.abs(center - cardCenter);
-    const maxDistance = center;
+    const norm = distance / center;
 
-    let norm = distance / maxDistance;
+    const deadZone = 0.2;
 
-    // 🔥 CENTER HOLD ZONE (sehr wichtig!)
-    const deadZone = 0.15; // 15% der Mitte bleibt „perfekt“
+    let value;
 
     if (norm < deadZone) {
-      norm = 0;
+      value = 0;
     } else {
-      norm = (norm - deadZone) / (1 - deadZone);
+      value = (norm - deadZone) / (1 - deadZone);
     }
 
-    norm = Math.min(norm, 1);
+    const eased = Math.pow(value, 1.4);
 
-    // 🔥 weichere Kurve (nicht linear!)
-    const eased = Math.pow(norm, 1.4);
-
-    // 🎯 Effekte
     const scale = 1 - eased * 0.25;
-    const opacity = 1 - eased * 0.65;
+    const opacity = 1 - eased * 0.7;
     const blur = eased * 6;
 
     card.style.transform = `scale(${scale})`;
@@ -62,8 +59,10 @@ function updateCards() {
   });
 }
 
+/* MAIN LOOP */
 function animate() {
-  current += (target - current) * 0.08;
+  velocity = (target - current) * 0.08;
+  current += velocity;
 
   track.style.transform = `translate3d(${current}px,0,0)`;
 
