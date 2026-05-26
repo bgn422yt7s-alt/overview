@@ -574,97 +574,114 @@ body {
   }
 
   /* =========================
-     PROJECTS → CENTERED CAROUSEL
-  ========================= */
+   PROJECTS → PERFECT MOBILE CAROUSEL
+========================= */
 
-  /* ❌ Desktop Scroll deaktivieren */
-  .pin-section {
-    height: auto !important;
-    padding: 60px 0 30px;
-  }
+/* SECTION RESET */
+.pin-section {
+  height: auto !important;
+  padding: 60px 0 40px;
+}
 
-  .pin-inner {
-    position: relative !important;
-    height: auto !important;
-    display: block !important;
-    overflow: visible !important;
-  }
+.pin-inner {
+  position: relative !important;
+  height: auto !important;
 
-  .track {
-    transform: none !important;
-  }
+  display: flex;
+  flex-direction: column; /* 🔥 verhindert Overlap */
+  align-items: stretch;
 
-  /* HEAD */
-  .projects-head {
-    position: relative !important;
-    padding: 0 5% 20px;
-  }
+  overflow: visible !important;
+}
 
-  /* 🔥 CAROUSEL */
-  .track {
-    display: flex;
-    gap: 16px;
+/* HEAD → sauber getrennt */
+.projects-head {
+  position: relative !important;
+  padding: 0 5%;
+  margin-bottom: 20px; /* 🔥 Abstand zu Cards */
+}
 
-    overflow-x: auto;
-    overflow-y: hidden;
+/* =========================
+   CAROUSEL CORE
+========================= */
 
-    padding: 0 5% 30px;
+.track {
+  display: flex;
+  gap: 16px;
 
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
+  overflow-x: auto;
+  overflow-y: hidden;
 
-  /* 🔥 WICHTIG: SYMMETRISCHES CENTERING */
-  .track::before,
-  .track::after {
-    content: "";
-    flex: 0 0 calc(50% - 42%);
-    /* sorgt dafür, dass Karte exakt mittig sitzt */
-  }
+  padding: 0 0 30px;
 
-  /* 🔥 CARDS */
-  .panel {
-    flex: 0 0 84%; /* etwas kleiner als Screen */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 
-    height: 380px;
-    border-radius: 22px;
+  transform: none !important;
+}
 
-    scroll-snap-align: center;
+/* 🔥 WICHTIG: echtes zentrieren (kein calc hack mehr) */
+.track::before,
+.track::after {
+  content: "";
+  flex: 0 0 5%; /* gleichmäßiger Rand links & rechts */
+}
 
-    /* keine Desktop Effekte */
-    transform: none !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
+/* =========================
+   CARDS
+========================= */
 
-  /* CONTENT */
-  .panel-inner {
-    padding: 22px;
-  }
+.panel {
+  flex: 0 0 90%; /* 🔥 perfekte Mobile-Breite */
 
-  .logo-img {
-    width: 70px;
-  }
+  height: 380px;
+  border-radius: 22px;
 
-  .text h3 {
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-  }
+  scroll-snap-align: center;
 
-  .text p {
-    font-size: 0.9rem;
-    line-height: 1.45;
-  }
+  /* Desktop Effekte deaktivieren */
+  transform: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
 
-  /* SCROLLBAR CLEAN */
-  .track::-webkit-scrollbar {
-    display: none;
-  }
+/* =========================
+   CONTENT
+========================= */
 
-  .track {
-    scrollbar-width: none;
-  }
+.panel-inner {
+  padding: 22px;
+}
 
+.logo-img {
+  width: 70px;
+}
+
+.text {
+  max-width: 100%;
+}
+
+.text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.text p {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* =========================
+   CLEAN SCROLL
+========================= */
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  scrollbar-width: none;
+}
   /* =========================
      CONTACT
   ========================= */
