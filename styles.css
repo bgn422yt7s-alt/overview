@@ -574,124 +574,140 @@ body {
   }
 
 /* =========================
-   PROJECTS → FINAL MOBILE FIX (CLEAN + NON-OVERLAPPING)
+   PROJECTS → FINAL MOBILE FIX (ZERO OVERLAP GUARANTEE)
 ========================= */
 
 @media (max-width: 768px) {
 
   /* =========================
-     SECTION RESET
+     SECTION RESET (SAFE FLOW)
   ========================= */
 
   .pin-section {
     height: auto !important;
-    padding: 60px 0 40px;
+    padding: 70px 0 50px;
     overflow: hidden;
   }
 
-  /* ❗ WICHTIG: Desktop Layout komplett neutralisieren */
+  /* ❗ Desktop Sticky komplett deaktivieren */
   .pin-inner {
+    position: relative !important;
     display: block !important;
     height: auto !important;
     overflow: visible !important;
   }
 
   /* =========================
-     HEAD (IM FLOW, KEIN OVERLAP MÖGLICH)
+     HEAD → KLAR GETRENNT (WICHTIG!)
   ========================= */
 
   .projects-head {
+    position: relative !important;
+    display: block;
     padding: 0 5%;
-    margin-bottom: 16px;
+    margin: 0 0 24px 0; /* 🔥 klarer Abstand zur Karte */
   }
 
   .projects-head h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     line-height: 1.2;
   }
 
   .projects-head p {
     font-size: 0.9rem;
-    opacity: 0.7;
+    opacity: 0.65;
     margin-top: 6px;
   }
 
   /* =========================
-     CAROUSEL
+     CAROUSEL WRAPPER
   ========================= */
 
   .track {
     display: flex;
-    gap: 14px;
+    flex-wrap: nowrap;
 
     overflow-x: auto;
     overflow-y: hidden;
 
-    padding: 0 5% 20px;
+    gap: 14px;
+
+    padding: 0 5% 10px;
 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
-    /* ❗ verhindert Desktop Animation Einfluss */
+    /* ❗ verhindert ALLE Desktop Animationen */
     transform: none !important;
   }
 
   /* =========================
-     FIXED CENTER SPACING (SAFE)
+     SAFE CENTER SPACING
+     (kein calc, kein vw-trick mehr)
   ========================= */
 
   .track::before,
   .track::after {
     content: "";
-    flex: 0 0 5vw; /* stabil auf allen iPhones */
+    flex: 0 0 5%; /* stabil auf allen iPhones */
   }
 
   /* =========================
-     CARD
+     CARD (STABIL + NO CLIPPING)
   ========================= */
 
   .panel {
-    flex: 0 0 85vw; /* 🔥 KEY FIX: echte Viewport-Breite */
+    flex: 0 0 85%;
 
-    height: 380px;
+    height: 360px;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
     scroll-snap-align: center;
 
-    /* HARD RESET */
+    position: relative;
+
+    /* ❗ HARD RESET gegen Desktop Effects */
     transform: none !important;
     opacity: 1 !important;
     filter: none !important;
 
-    position: relative;
+    overflow: hidden;
   }
 
   /* =========================
-     CONTENT
+     CONTENT (SAFE INSIDE CARD)
   ========================= */
 
   .panel-inner {
-    padding: 20px;
+    padding: 18px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .logo-img {
-    width: 70px;
+    width: 64px;
+  }
+
+  .text {
+    max-width: 100%;
   }
 
   .text h3 {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     margin-bottom: 6px;
   }
 
   .text p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.4;
     opacity: 0.8;
   }
 
   /* =========================
-     CLEAN SCROLLBAR
+     SCROLL CLEAN
   ========================= */
 
   .track::-webkit-scrollbar {
@@ -701,17 +717,6 @@ body {
   .track {
     scrollbar-width: none;
   }
-}
-/* =========================
-   CLEAN SCROLL
-========================= */
-
-.track::-webkit-scrollbar {
-  display: none;
-}
-
-.track {
-  scrollbar-width: none;
 }
   /* =========================
      CONTACT
