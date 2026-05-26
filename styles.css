@@ -573,104 +573,126 @@ body {
     margin-top: 20px;
   }
 
+/* =========================
+   PROJECTS → STABLE MOBILE SYSTEM (NO OVERLAP GUARANTEE)
+========================= */
+
+@media (max-width: 768px) {
+
+  /* SECTION = NORMAL FLOW */
+  .pin-section {
+    height: auto !important;
+    padding: 60px 0 40px;
+    overflow: hidden;
+  }
+
+  /* ❌ WICHTIG: alles Sticky/Desktop komplett neutralisieren */
+  .pin-inner {
+    position: relative !important;
+    height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  /* HEAD = EIGENER BLOCK */
+  .projects-head {
+    position: relative !important;
+    padding: 0 5%;
+    margin: 0 0 18px 0;
+    z-index: 1;
+  }
+
+  /* TITLE spacing fix */
+  .projects-head h2 {
+    font-size: 1.7rem;
+    line-height: 1.2;
+  }
+
+  .projects-head p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
   /* =========================
-   PROJECTS → PERFECT MOBILE CAROUSEL
-========================= */
+     CAROUSEL WRAPPER
+  ========================= */
 
-/* SECTION RESET */
-.pin-section {
-  height: auto !important;
-  padding: 60px 0 40px;
+  .track {
+    display: flex;
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    gap: 14px;
+
+    padding: 0 5% 20px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    /* 🔥 HARD RESET gegen Desktop Animationen */
+    transform: none !important;
+  }
+
+  /* SAFE SPACING (kein calc mehr!) */
+  .track::before,
+  .track::after {
+    content: "";
+    flex: 0 0 5%;
+  }
+
+  /* =========================
+     CARDS
+  ========================= */
+
+  .panel {
+    flex: 0 0 88%;
+
+    height: 380px;
+
+    border-radius: 20px;
+
+    scroll-snap-align: center;
+
+    /* HARD RESET */
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+
+    position: relative;
+  }
+
+  /* CONTENT */
+  .panel-inner {
+    padding: 20px;
+  }
+
+  .logo-img {
+    width: 70px;
+  }
+
+  .text h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+
+  .text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+
+  /* SCROLLBAR CLEAN */
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track {
+    scrollbar-width: none;
+  }
 }
-
-.pin-inner {
-  position: relative !important;
-  height: auto !important;
-
-  display: flex;
-  flex-direction: column; /* 🔥 verhindert Overlap */
-  align-items: stretch;
-
-  overflow: visible !important;
-}
-
-/* HEAD → sauber getrennt */
-.projects-head {
-  position: relative !important;
-  padding: 0 5%;
-  margin-bottom: 20px; /* 🔥 Abstand zu Cards */
-}
-
-/* =========================
-   CAROUSEL CORE
-========================= */
-
-.track {
-  display: flex;
-  gap: 16px;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-
-  padding: 0 0 30px;
-
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-
-  transform: none !important;
-}
-
-/* 🔥 WICHTIG: echtes zentrieren (kein calc hack mehr) */
-.track::before,
-.track::after {
-  content: "";
-  flex: 0 0 5%; /* gleichmäßiger Rand links & rechts */
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.panel {
-  flex: 0 0 90%; /* 🔥 perfekte Mobile-Breite */
-
-  height: 380px;
-  border-radius: 22px;
-
-  scroll-snap-align: center;
-
-  /* Desktop Effekte deaktivieren */
-  transform: none !important;
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-/* =========================
-   CONTENT
-========================= */
-
-.panel-inner {
-  padding: 22px;
-}
-
-.logo-img {
-  width: 70px;
-}
-
-.text {
-  max-width: 100%;
-}
-
-.text h3 {
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-}
-
-.text p {
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
 /* =========================
    CLEAN SCROLL
 ========================= */
