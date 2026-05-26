@@ -1,54 +1,182 @@
-<!DOCTYPE html> <html lang="de"> <head>   <meta charset="UTF-8" />   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Nova Systems | Business Engineering</title>
 
-  <link rel="stylesheet" href="styles.css">   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> </head>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
 
 <body>
 
-<header class="nav">   <div class="logo">Nova Systems</div>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
 
-  <nav>     <a href="#services">Leistungen</a>     <a href="#work">Projekte</a>     <a href="#contact">Kontakt</a>   </nav> </header>
+    <div class="nav-left">
+      <img src="IMG_1145.png" class="nav-logo-img">
+      <div class="logo-text">Nova Systems</div>
+    </div>
 
-<section class="hero">   <div class="hero-bg"></div>   <div class="hero-overlay"></div>
+    <nav class="nav-links">
+      <a href="#services">Leistungen</a>
+      <a href="#work">Projekte</a>
+      <a href="#contact" class="cta">Kontakt</a>
+    </nav>
 
-  <div class="container">     <div class="eyebrow">Business Engineering · Automation · SaaS</div>
+  </div>
+</header>
 
-    <h1>Digitale Systeme, die Unternehmen wirklich skalieren.</h1>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
 
-    <p>       Wir entwickeln Automatisierung, SaaS-Produkte und moderne Business-Architekturen       für nachhaltiges Wachstum.     </p>
+  <div class="hero-content">
 
-    <a href="#work" class="button">Projekte ansehen</a>   </div> </section>
+    <div class="eyebrow">Business Engineering · Automation · SaaS</div>
 
-<section id="services" class="section">   <div class="container grid">     <div class="card">       <h3>Automation</h3>       <p>Prozesse effizient automatisieren.</p>     </div>
+    <h1>
+      Digitale Systeme,<br>
+      die wirklich skalieren.
+    </h1>
 
-    <div class="card">       <h3>SaaS Entwicklung</h3>       <p>Skalierbare Plattformen entwickeln.</p>     </div>
+    <p>
+      Wir entwickeln Automatisierung, SaaS-Produkte und moderne Business-Architekturen
+      für nachhaltiges Wachstum.
+    </p>
 
-    <div class="card">       <h3>Architektur</h3>       <p>Saubere Systemstrukturen aufbauen.</p>     </div>
+    <div class="hero-actions">
+      <a href="#work" class="button primary">Projekte ansehen</a>
+      <a href="#contact" class="button secondary">Kontakt aufnehmen</a>
+    </div>
 
-    <div class="card">       <h3>Data</h3>       <p>Daten intelligent nutzbar machen.</p>     </div>   </div> </section>
+  </div>
+</section>
 
-<section id="work" class="pin-section">   <div class="pin-inner">
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
 
-    <div class="container">       <h2>Ausgewählte Projekte</h2>       <p>Scrollen und entdecken</p>     </div>
+    <div class="section-head">
+      <h2>Leistungen</h2>
+      <p>Strategie. Technologie. Umsetzung.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Automation</h3>
+        <p>Prozesse effizient automatisieren.</p>
+      </div>
+
+      <div class="card">
+        <h3>SaaS Entwicklung</h3>
+        <p>Skalierbare Plattformen entwickeln.</p>
+      </div>
+
+      <div class="card">
+        <h3>System Architektur</h3>
+        <p>Robuste und saubere Strukturen.</p>
+      </div>
+
+      <div class="card">
+        <h3>Data Engineering</h3>
+        <p>Daten intelligent nutzbar machen.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="pin-section">
+
+  <div class="pin-inner">
+
+    <div class="section-head">
+      <h2>Ausgewählte Projekte</h2>
+      <p>Fokus. Bewegung. Systeme.</p>
+    </div>
 
     <div class="track" id="track">
 
-      <div class="panel" style="background-image:url('IMG_1096.jpeg')">         <div class="overlay"></div>         <img class="logo" src="IMG_1088.png">         <div class="content">           <h3>QR Code Generator</h3>           <p>Dynamische QR-Systeme für Prozesse.</p>         </div>       </div>
+      <div class="panel">
+        <div class="bg" style="background-image:url('IMG_1096.jpeg')"></div>
+        <div class="overlay"></div>
 
-      <div class="panel" style="background-image:url('IMG_1096.jpeg')">         <div class="overlay"></div>         <img class="logo" src="IMG_1084.png">         <div class="content">           <h3>Rechnungssystem</h3>           <p>Automatisierte Rechnungsprozesse.</p>         </div>       </div>
+        <img src="IMG_1088.png" class="logo-img">
 
-      <div class="panel" style="background-image:url('IMG_1096.jpeg')">         <div class="overlay"></div>         <img class="logo" src="IMG_1083.png">         <div class="content">           <h3>Sichere Passwörter</h3>           <p>Maximale Sicherheit für Accounts.</p>         </div>       </div>
+        <div class="content">
+          <h3>QR Code Generator</h3>
+          <p>Dynamische QR-Systeme für Prozesse.</p>
+        </div>
+      </div>
 
-      <div class="panel" style="background-image:url('IMG_1096.jpeg')">         <div class="overlay"></div>         <img class="logo" src="IMG_1082.png">         <div class="content">           <h3>Alltagsorganisation</h3>           <p>Struktur für komplexe Abläufe.</p>         </div>       </div>
+      <div class="panel">
+        <div class="bg" style="background-image:url('IMG_1096.jpeg')"></div>
+        <div class="overlay"></div>
 
-    </div>   </div> </section>
+        <img src="IMG_1084.png" class="logo-img">
 
-<section id="contact" class="section">   <div class="container">     <h2>Kontakt</h2>
+        <div class="content">
+          <h3>Rechnungssystem</h3>
+          <p>Automatisierte Rechnungsprozesse.</p>
+        </div>
+      </div>
 
-    <form class="form">       <input type="text" placeholder="Name" required>       <input type="email" placeholder="E-Mail" required>       <textarea placeholder="Projektbeschreibung" required></textarea>       <button type="submit">Anfrage senden</button>     </form>   </div> </section>
+      <div class="panel">
+        <div class="bg" style="background-image:url('IMG_1096.jpeg')"></div>
+        <div class="overlay"></div>
+
+        <img src="IMG_1083.png" class="logo-img">
+
+        <div class="content">
+          <h3>Sichere Passwörter</h3>
+          <p>Maximale Sicherheit für Accounts.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="bg" style="background-image:url('IMG_1096.jpeg')"></div>
+        <div class="overlay"></div>
+
+        <img src="IMG_1082.png" class="logo-img">
+
+        <div class="content">
+          <h3>Alltagsorganisation</h3>
+          <p>Struktur für komplexe Abläufe.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>Kontakt</h2>
+      <p>Starten wir gemeinsam Ihr Projekt.</p>
+    </div>
+
+    <form class="form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="E-Mail" required>
+      <textarea placeholder="Projektbeschreibung" required></textarea>
+      <button type="submit">Anfrage senden</button>
+    </form>
+
+  </div>
+</section>
 
 <script src="script.js"></script>
 
-</body> </html>
-
+</body>
+</html>
