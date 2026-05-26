@@ -497,7 +497,7 @@ body {
   transform: scale(1);
 }
 /* =========================
-   RESPONSIVE SYSTEM FIX
+   RESPONSIVE SYSTEM FIX (CLEAN + CONSISTENT)
 ========================= */
 
 /* TABLET */
@@ -523,7 +523,9 @@ body {
   }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE (IMPORTANT: NEW UX MODEL)
+========================= */
 @media (max-width: 768px) {
 
   /* NAV */
@@ -563,7 +565,10 @@ body {
     padding: 24px;
   }
 
-  /* PROJECTS → WICHTIGSTER FIX */
+  /* =========================
+     PROJECTS → MOBILE CAROUSEL (NEW)
+  ========================= */
+
   .pin-section {
     height: auto;
     padding: 100px 0;
@@ -575,28 +580,48 @@ body {
     display: block;
   }
 
-  .track {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    padding: 0 5%;
+  .projects-head {
+    position: relative;
+    top: auto;
+    left: auto;
+    padding: 0 5% 30px;
   }
 
+  /* TRACK → HORIZONTAL SWIPE */
+  .track {
+    display: flex;
+    flex-direction: row;
+
+    gap: 20px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 0 5% 20px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* PANEL → MOBILE CARD SIZE */
   .panel {
-    width: 100%;
+    flex: 0 0 85%;
     height: 420px;
+
+    scroll-snap-align: center;
 
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
   }
 
-  .projects-head {
-    position: relative;
-    top: auto;
-    left: auto;
-    padding: 0 5% 40px;
+  /* CLEAN SCROLLBAR HIDE */
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track {
+    scrollbar-width: none;
   }
 
   /* CONTACT */
@@ -609,7 +634,9 @@ body {
   }
 }
 
-/* SMALL MOBILE */
+/* =========================
+   SMALL MOBILE OPTIMIZATION
+========================= */
 @media (max-width: 420px) {
 
   .hero h1 {
