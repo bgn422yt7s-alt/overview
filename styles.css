@@ -517,14 +517,70 @@ body {
 }
 
 /* =========================
-   MOBILE → REAL CAROUSEL (NO SCROLL HIJACK)
+   MOBILE → CLEAN + CENTERED UX
 ========================= */
 @media (max-width: 768px) {
 
-  /* ❌ KOMPLETTES SCROLL SYSTEM DEAKTIVIEREN */
+  /* =========================
+     NAV → KOMPAKT & CLEAN
+  ========================= */
+
+  .nav-inner {
+    padding: 12px 5%;
+  }
+
+  .nav-logo-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .cta {
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 999px;
+  }
+
+  /* =========================
+     HERO → RICHTIGE PROPORTIONEN
+  ========================= */
+
+  .hero-content {
+    margin-top: 30px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .hero p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  .hero-actions {
+    margin-top: 20px;
+  }
+
+  /* =========================
+     PROJECTS → CENTERED CAROUSEL
+  ========================= */
+
+  /* ❌ Desktop Scroll deaktivieren */
   .pin-section {
     height: auto !important;
-    padding: 60px 0 20px;
+    padding: 60px 0 30px;
   }
 
   .pin-inner {
@@ -534,24 +590,17 @@ body {
     overflow: visible !important;
   }
 
-  /* ❌ wichtig: track darf NICHT transformiert werden */
   .track {
     transform: none !important;
   }
 
-  /* 🔥 HEAD SAUBER OBEN */
+  /* HEAD */
   .projects-head {
     position: relative !important;
-    top: auto !important;
-    left: auto !important;
-
     padding: 0 5% 20px;
   }
 
-  /* =========================
-     🎯 CAROUSEL SYSTEM
-  ========================= */
-
+  /* 🔥 CAROUSEL */
   .track {
     display: flex;
     gap: 16px;
@@ -565,44 +614,40 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* 🔥 ERSTE KARTE DIREKT SICHTBAR */
-  .track::before {
-    content: "";
-    flex: 0 0 0px;
-  }
-
-  /* 🔥 LETZTE KARTE PADDING */
+  /* 🔥 WICHTIG: SYMMETRISCHES CENTERING */
+  .track::before,
   .track::after {
     content: "";
-    flex: 0 0 5%;
+    flex: 0 0 calc(50% - 42%);
+    /* sorgt dafür, dass Karte exakt mittig sitzt */
   }
 
-  /* 🔥 CARDS → MOBILE PERFEKT */
+  /* 🔥 CARDS */
   .panel {
-    flex: 0 0 88%; /* wichtig → erste Karte sichtbar */
+    flex: 0 0 84%; /* etwas kleiner als Screen */
 
-    height: 400px;
+    height: 380px;
     border-radius: 22px;
 
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 
-    /* ❌ KEIN DESKTOP EFFECT */
+    /* keine Desktop Effekte */
     transform: none !important;
     opacity: 1 !important;
     filter: none !important;
   }
 
-  /* 🔥 CONTENT CLEAN */
+  /* CONTENT */
   .panel-inner {
     padding: 22px;
   }
 
   .logo-img {
-    width: 75px;
+    width: 70px;
   }
 
   .text h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-bottom: 6px;
   }
 
@@ -611,12 +656,52 @@ body {
     line-height: 1.45;
   }
 
-  /* 🔥 SCROLLBAR CLEAN */
+  /* SCROLLBAR CLEAN */
   .track::-webkit-scrollbar {
     display: none;
   }
 
   .track {
     scrollbar-width: none;
+  }
+
+  /* =========================
+     CONTACT
+  ========================= */
+
+  .contact-card {
+    padding: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE → EXTRA TIGHT
+========================= */
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .panel {
+    flex: 0 0 88%;
+    height: 340px;
+  }
+
+  .panel-inner {
+    padding: 18px;
+  }
+
+  .text h3 {
+    font-size: 1.1rem;
+  }
+
+  .text p {
+    font-size: 0.85rem;
   }
 }
