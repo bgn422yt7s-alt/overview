@@ -22,59 +22,61 @@ body {
 
   display: flex;
   align-items: center;
+
+  overflow: hidden; /* 🔥 wichtig für sauberes Cropping */
 }
 
-/* WICHTIG: hinter NAV sichtbar */
+/* BACKGROUND (OPTIMIERT) */
 .hero-bg {
   position: absolute;
-  inset: 0;
+  inset: -5%; /* 🔥 gibt Raum für besseres Cropping */
 
-  background: url("IMG_1096.jpeg") center/cover no-repeat;
-  transform: scale(1.05);
+  background-image: url("IMG_1096.jpeg");
+  background-size: cover;
+
+  /* 🔥 wichtiger Teil: kontrollierter Fokus */
+  background-position: center 35%;
+
+  transform: scale(1.15); /* mehr cinematic depth */
+
+  filter: saturate(1.05) contrast(1.05);
 }
 
+/* OVERLAY bleibt, aber etwas cleaner */
 .hero-overlay {
   position: absolute;
   inset: 0;
 
-  background: radial-gradient(circle at top, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0,0,0,0.25), rgba(0,0,0,0.85)),
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85));
 }
 
-/* CONTENT */
+/* CONTENT bleibt gleich, nur leicht optimiert */
 .hero-content {
   position: relative;
   z-index: 2;
 
   padding: 0 5%;
-  margin-top: 80px; /* NAV Luft */
+  margin-top: 60px; /* etwas cleaner als 80px */
+  max-width: 900px;
 }
 
-/* EYEBROW */
-.eyebrow {
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-
-  color: rgba(255,255,255,0.6);
-}
-
-/* TITLE */
+/* TYPO refinement */
 .hero h1 {
-  font-size: 4rem;
+  font-size: 4.2rem;
   line-height: 1.05;
-
-  margin-top: 20px;
+  letter-spacing: -0.02em;
 }
 
-/* TEXT */
 .hero p {
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 620px;
+  margin-top: 22px;
 
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.72);
   font-size: 18px;
+  line-height: 1.6;
 }
-
 /* PIN */
 .pin-section {
   height: 300vh;
