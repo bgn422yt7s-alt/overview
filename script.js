@@ -6,15 +6,14 @@ let maxScroll = 0;
 let current = 0;
 let target = 0;
 
-function update() {
+function updateSizes() {
   maxScroll = track.scrollWidth - window.innerWidth;
 }
 
-window.addEventListener("resize", update);
-update();
+window.addEventListener("resize", updateSizes);
+updateSizes();
 
 window.addEventListener("scroll", () => {
-
   const top = section.offsetTop;
   const height = section.offsetHeight;
   const scrollY = window.scrollY;
@@ -23,30 +22,29 @@ window.addEventListener("scroll", () => {
   progress = Math.max(0, Math.min(1, progress));
 
   target = -progress * maxScroll;
-
-  updateFocusEffect();
 });
 
-function updateFocusEffect() {
+function updateCards() {
   const center = window.innerWidth / 2;
 
   cards.forEach(card => {
     const rect = card.getBoundingClientRect();
     const cardCenter = rect.left + rect.width / 2;
 
-    const distance = Math.abs(center - cardCenter);
+    const distance = cardCenter - center;
 
-    // 0 = perfekt center, 1 = weit weg
-    const norm = Math.min(distance / (window.innerWidth / 2), 1);
+    const normalized = distance / center;
 
-    // SCALE (center größer)
-    const scale = 1 - norm * 0.18;
+    const abs = Math.abs(normalized);
 
-    // OPACITY (side fade)
-    const opacity = 1 - norm * 0.5;
+    // 🎯 SCALE (ruhiger & präziser)
+    const scale = 1 - Math.min(abs * 0.2, 0.2);
 
-    // BLUR (side blur)
-    const blur = norm * 6;
+    // 🎯 OPACITY
+    const opacity = 1 - Math.min(abs * 0.6, 0.6);
+
+    // 🎯 BLUR (nur leicht!)
+    const blur = Math.min(abs * 4, 4);
 
     card.style.transform = `scale(${scale})`;
     card.style.opacity = opacity;
@@ -55,9 +53,12 @@ function updateFocusEffect() {
 }
 
 function animate() {
-  current += (target - current) * 0.06;
+  // smoother interpolation
+  current += (target - current) * 0.08;
 
   track.style.transform = `translate3d(${current}px,0,0)`;
+
+  updateCards();
 
   requestAnimationFrame(animate);
 }
