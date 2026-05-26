@@ -105,7 +105,6 @@ body {
   will-change: transform;
 }
 
-/* PANEL */
 .panel {
   min-width: 780px;
   height: 520px;
@@ -117,9 +116,9 @@ body {
   background-size: cover;
   background-position: center;
 
-  transition: transform 0.2s linear,
-              opacity 0.2s linear,
-              filter 0.2s linear;
+  transition: transform 0.18s linear,
+              opacity 0.18s linear,
+              filter 0.18s linear;
 
   transform-origin: center;
   backface-visibility: hidden;
