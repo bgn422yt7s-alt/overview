@@ -87,37 +87,30 @@ body {
 
 
 /* =========================
-   SERVICES
+   SERVICES (PREMIUM LAYOUT)
 ========================= */
 
-.section {
-  padding: 120px 5%;
+.services {
+  padding: 140px 5%;
 }
 
-.section-head {
-  margin-bottom: 60px;
+/* center header */
+.section-head.center {
+  text-align: center;
+  margin-bottom: 80px;
 }
 
-.section-head h2 {
-  font-size: 2.5rem;
-  letter-spacing: -0.02em;
-}
-
-.section-head p {
-  color: rgba(255,255,255,0.6);
-  margin-top: 10px;
-}
-
-/* GRID */
-.grid {
+/* MAIN LAYOUT */
+.services-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+
+  align-items: stretch;
 }
 
-/* CARD */
-.card {
-  position: relative;
+/* CARD BASE */
+.service-card {
   padding: 40px;
   border-radius: 24px;
 
@@ -126,39 +119,73 @@ body {
 
   backdrop-filter: blur(14px);
 
-  transition: all 0.35s ease;
+  transition: 0.35s ease;
+
+  position: relative;
   overflow: hidden;
 }
 
-/* glow */
-.card::before {
+/* hover premium glow */
+.service-card::before {
   content: "";
   position: absolute;
   inset: 0;
 
   background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 60%);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: 0.4s ease;
 }
 
-.card:hover {
+.service-card:hover {
   transform: translateY(-6px);
   border-color: rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.05);
 }
 
-.card:hover::before {
+.service-card:hover::before {
   opacity: 1;
 }
 
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
+/* LEFT BIG CARD */
+.service-card.large {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 100%;
 }
 
-.card p {
+.service-card.large h3 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+/* RIGHT STACK */
+.service-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* TYPO */
+.service-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
   color: rgba(255,255,255,0.65);
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .services-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card.large {
+    min-height: auto;
+  }
 }
 
 
