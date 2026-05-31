@@ -806,3 +806,21 @@ body {
   transform: scale(1.02);
   filter: brightness(1.05);
 }
+.back-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+
+  font-size: 13px;
+  transition: 0.25s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: white;
+}
