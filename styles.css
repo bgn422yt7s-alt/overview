@@ -766,20 +766,35 @@ body {
   }
 }
 /* =========================
-   CLICKABLE PROJECT CARDS
+   CLICKABLE PANEL FIX (FINAL)
 ========================= */
 
+/* macht <a> wie ein echtes div */
 .panel {
   display: block;
+  position: relative;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
 }
 
-/* nicer interaction */
-.panel:active {
-  transform: scale(0.97);
+/* verhindert Layout Bugs */
+.panel-click-fix {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-.panel:hover .overlay {
-  background: rgba(0,0,0,0.5);
+
+/* Ebenen sauber definieren */
+.bg {
+  z-index: 1;
+}
+
+.overlay {
+  z-index: 2;
+  pointer-events: none; /* 🔥 verhindert Klick-Block */
+}
+
+.panel-inner {
+  position: relative;
+  z-index: 3;
 }
