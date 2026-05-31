@@ -447,14 +447,12 @@ body {
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* 🔥 stabiler als margin-top:auto */
 
-  height: 100%;              /* 🔥 KEY FIX */
+  z-index: 3;
 }
 
-/* 🔥 DAS IST DER GANZE FIX */
-.text {
-  margin-top: auto;
-}
+
 
 /* LOGO */
 .logo-img {
@@ -801,7 +799,8 @@ body {
 }
 
 .panel-inner {
-  position: relative;
+  position: absolute;   /* 🔥 WICHTIG */
+  inset: 0;
   z-index: 3;
 }
 .panel {
