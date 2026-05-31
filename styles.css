@@ -824,3 +824,24 @@ body {
   background: rgba(255,255,255,0.12);
   color: white;
 }
+.cta-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+
+  border-radius: 999px;
+
+  background: white;
+  color: black;
+
+  border: none;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.9);
+}
