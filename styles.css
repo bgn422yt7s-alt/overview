@@ -765,3 +765,21 @@ body {
     font-size: 0.85rem;
   }
 }
+/* =========================
+   CLICKABLE PROJECT CARDS
+========================= */
+
+.panel {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* nicer interaction */
+.panel:active {
+  transform: scale(0.97);
+}
+.panel:hover .overlay {
+  background: rgba(0,0,0,0.5);
+}
