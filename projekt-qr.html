@@ -6,50 +6,51 @@
 
   <title>QR Code System | GBS</title>
 
-  <!-- 🔥 gleiche CSS wie index -->
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- NAV (minimal + zurück) -->
+<!-- =========================
+     NAV (CLEAN + LOGO ONLY HERE)
+========================= -->
 <header class="nav">
   <div class="nav-inner">
 
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a href="index.html" class="back-btn">← Zurück</a>
-    </div>
+    <!-- LEFT -->
+    <a href="index.html" class="back-btn">← Zurück</a>
 
-    <!-- 🔥 Projekt-Logo rechts -->
+    <!-- RIGHT LOGO -->
     <img src="IMG_1088.png" class="nav-logo-img">
 
   </div>
 </header>
 
 <!-- =========================
-     HERO (APPLE STYLE)
+     HERO (CLEAN APPLE STYLE)
 ========================= -->
 <section class="hero" style="height:90vh;">
 
-<div class="hero-content">
+  <!-- 🔥 BACKGROUND IMAGE -->
+  <div class="hero-bg" style="background-image:url('IMG_1096.jpeg');"></div>
 
-  <img src="IMG_1088.png" style="
-    width: 150px;
-    margin-bottom: 10px;
-    opacity: 0.9;
-  ">
+  <!-- 🔥 OVERLAY -->
+  <div class="hero-overlay"></div>
 
-  <div class="eyebrow">Projekt</div>
+  <!-- CONTENT -->
+  <div class="hero-content">
 
-  <h1>QR Code System</h1>
+    <div class="eyebrow">Projekt</div>
 
-  <p>
-    Dynamische QR-Infrastruktur für moderne Unternehmen —
-    flexibel, skalierbar und vollständig kontrollierbar.
-  </p>
+    <h1>QR Code System</h1>
 
-</div>
+    <p>
+      Dynamische QR-Infrastruktur für moderne Unternehmen —
+      flexibel, skalierbar und vollständig kontrollierbar.
+    </p>
+
+  </div>
 
 </section>
 
@@ -114,15 +115,15 @@
 </section>
 
 <!-- =========================
-     CTA
+     CTA (BUTTON, NOT LINK)
 ========================= -->
 <section class="section contact" style="padding:120px 5%; text-align:center;">
 
   <h2 style="font-size:2rem;">Starten Sie Ihr Projekt</h2>
 
-<button class="cta-btn">
-  Anfrage senden
-</button>
+  <button class="cta-btn">
+    Anfrage senden
+  </button>
 
 </section>
 
