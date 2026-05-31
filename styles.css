@@ -799,9 +799,14 @@ body {
 }
 
 .panel-inner {
-  position: absolute;   /* 🔥 WICHTIG */
-  inset: 0;
+  position: relative;     /* 🔥 wichtig */
   z-index: 3;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 🔥 sorgt für oben + unten */
 }
 .panel {
   transition: transform 0.35s ease, filter 0.35s ease;
