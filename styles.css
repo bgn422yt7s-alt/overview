@@ -765,36 +765,44 @@ body {
     font-size: 0.85rem;
   }
 }
+
 /* =========================
-   CLICKABLE PANEL FIX (FINAL)
+   PANEL AS LINK (FINAL FIX)
 ========================= */
 
-/* macht <a> wie ein echtes div */
 .panel {
-  display: block;
+  display: block;            /* 🔥 MACHT <a> WIE DIV */
   position: relative;
+
   text-decoration: none;
   color: inherit;
+
+  overflow: hidden;
 }
 
-/* verhindert Layout Bugs */
-.panel-click-fix {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* verhindert Klick-Block durch Overlay */
+.overlay {
+  pointer-events: none;
 }
 
-/* Ebenen sauber definieren */
+/* Layer sauber */
 .bg {
   z-index: 1;
 }
 
 .overlay {
   z-index: 2;
-  pointer-events: none; /* 🔥 verhindert Klick-Block */
 }
 
 .panel-inner {
   position: relative;
   z-index: 3;
+}
+.panel {
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.panel:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
 }
