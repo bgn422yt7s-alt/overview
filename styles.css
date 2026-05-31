@@ -447,7 +447,11 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+/* 🔥 DAS IST DER GANZE FIX */
+.text {
+  margin-top: auto;
 }
 
 /* LOGO */
