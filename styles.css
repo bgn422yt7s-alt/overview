@@ -954,3 +954,56 @@ body {
   }
 
 }
+/* =========================
+   SERVICES ICON RIGHT
+========================= */
+
+.service-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.service-text {
+  flex: 1;
+}
+
+.service-icon {
+  width: 72px;
+  height: 72px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+  opacity: 0.95;
+
+  filter:
+    drop-shadow(0 10px 20px rgba(0,0,0,.35));
+}
+
+/* Große Karte */
+.service-card.large .service-icon {
+  width: 90px;
+  height: 90px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .service-content {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .service-card.large .service-icon {
+    width: 72px;
+    height: 72px;
+  }
+}
