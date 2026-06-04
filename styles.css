@@ -880,3 +880,20 @@ body {
   transform: translateY(-2px);
   background: rgba(255,255,255,0.9);
 }
+/* =========================
+   SERVICE ICONS
+========================= */
+
+.service-icon{
+  width:72px;
+  height:72px;
+
+  object-fit:contain;
+
+  margin-bottom:22px;
+
+  opacity:0.95;
+
+  filter:
+    drop-shadow(0 10px 20px rgba(0,0,0,.35));
+}
